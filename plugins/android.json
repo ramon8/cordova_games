@@ -9,6 +9,9 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.app.seed"
+    },
+    "cordova-plugin-browsersync": {
+      "PACKAGE_NAME": "com.app.seed"
     }
   },
   "dependent_plugins": {}
