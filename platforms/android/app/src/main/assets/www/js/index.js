@@ -1,18 +1,30 @@
 document.addEventListener('deviceready', function () {
-    var config = {
-        type: Phaser.AUTO,
-        parent: 'game',
-        scene: {
-            preload: preload,
-            create: create
-        }
-    };
+    game = new Phaser.Game(50, 50, Phaser.CANVAS, 'game');
+    // var game = new Phaser.Game(
+    //     50,
+    //     50,
+    //     Phaser.CANVAS,
+    //     'game',
+    //     {
+    //         preload: preload,
+    //         create: create,
+    //         update: update,
+    //         render: render
+    //     });
 
-    var game = new Phaser.Game(config);
+    // function preload() {
 
-    function preload() {
-    }
+    // }
 
-    function create() {
-    }
+    // function create() {
+
+    // }
+
+    // function update() {
+
+    // }
+
+    // function render() {
+
+    // }
 });
