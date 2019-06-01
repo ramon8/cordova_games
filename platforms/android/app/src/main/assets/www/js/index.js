@@ -1,13 +1,13 @@
-
-const ratio_w = screen.width / 10
+let canvas_width = screen.width;
+const ratio_w = canvas_width / 10
+const canvas_height = ratio_w * Math.trunc(screen.height / ratio_w);
 const ratio_h = screen.height / (screen.height / ratio_w);
 
-const aspect_ratio = screen.width / screen.height;
+const aspect_ratio = canvas_width / screen.height;
 
-const canvas_height = ratio_w * Math.trunc(screen.height / ratio_w);
 
 document.addEventListener('deviceready', function () {
-    game = new Phaser.Game(screen.width, canvas_height, Phaser.CANVAS, 'game', {
+    game = new Phaser.Game(canvas_width, canvas_height, Phaser.CANVAS, 'game', {
         preload: preload, create: create, update: update, render: render
     });
 });

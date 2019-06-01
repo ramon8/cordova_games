@@ -1,20 +1,26 @@
+let canvas_width = screen.width;
+const tile_size = 16;
 
-const ratio_w = screen.width / 10
+const map_tile_w_dimension = 10;
+const map_tile_h_dimension = Math.trunc(screen.height / ratio_w);
+
+const ratio_w = canvas_width / map_tile_w_dimension;
+
+const canvas_height = ratio_w * map_tile_h_dimension;
+
 const ratio_h = screen.height / (screen.height / ratio_w);
 
-const aspect_ratio = screen.width / screen.height;
 
-const canvas_height = ratio_w * Math.trunc(screen.height / ratio_w);
 
 document.addEventListener('deviceready', function () {
-    game = new Phaser.Game(screen.width, canvas_height, Phaser.CANVAS, 'game', {
+    game = new Phaser.Game(canvas_width, canvas_height, Phaser.CANVAS, 'game', {
         preload: preload, create: create, update: update, render: render
     });
 });
 
 function preload() {
     game.load.spritesheet('pj_iddle', 'img/assets/pj_iddle.png', 35, 70);
-    game.load.spritesheet('floor', 'img/assets/suelo.png', 16, 16);
+    game.load.spritesheet('floor', 'img/assets/suelo.png', tile_size, tile_size);
 }
 
 function create() {
@@ -27,10 +33,10 @@ function create() {
     pj.scale.setTo(2);
     floor = [];
     for (var i = 0; i < 10; i++) {
-        for (var j = 0; j < Math.trunc(screen.height / ratio_w); j++) {
-            if (j == 0 || i == 0 || j == Math.trunc(screen.height / ratio_w) -1 || i == 9) {
+        for (var j = 0; j < map_tile_h_dimension; j++) {
+            if (j == 0 || i == 0 || j == map_tile_h_dimension -1 || i == 9) {
                 var floorTemp = game.add.sprite(i * ratio_w, j * ratio_w, 'floor', 0);
-                floorTemp.scale.setTo(ratio_w/16);
+                floorTemp.scale.setTo(ratio_w/tile_size);
                 floorTemp.smoothed = false;
                 floor.push(floor);
             }
